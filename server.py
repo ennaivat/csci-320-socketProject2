@@ -20,7 +20,7 @@ def upload_file(conn_socket: socket, file_name: str, file_size: int):
         try:
             while retrieved_size < file_size:
                 data = conn_socket.recv(1024)
-                retrieve size += (len)chunk
+                retrieved_size += len(data)
                 file.write(data)
         except OSError as oe:
             print(oe)
@@ -37,7 +37,6 @@ def start_server(ip, port):
         while True:
             (conn_socket, addr) = server_socket.accept()
             # expecting an 8-byte byte string for file size followed by file name
-            message, client_address=conn_socket.recvfrom(BUFFER_SIZE)
             file_size, file_name = get_file_info(data)
             print(f'Received: {file_name} with size = {file_size}')
             conn_socket.sendall(b'go on')

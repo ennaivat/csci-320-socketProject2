@@ -38,6 +38,7 @@ def start_server(ip, port):
             (conn_socket, addr) = server_socket.accept()
             # expecting an 8-byte byte string for file size followed by file name
             file_size, file_name = get_file_info(data)
+            info, address - server_socket.recvfrom(BUFFER_SIZE)
             print(f'Received: {file_name} with size = {file_size}')
             conn_socket.sendall(b'go on')
             upload_file(conn_socket, file_name, file_size)

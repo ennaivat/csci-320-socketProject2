@@ -43,7 +43,7 @@ def send_file(filename: str, address: (str, int)):
                 else:
                     break
     except OSError as e:
-        print(f'An error occurred while sending the file:\n\t{e}')
+        print(f'An error occurred while sending this file:\n\t{e}')
     finally:
         client_socket.close()
 
